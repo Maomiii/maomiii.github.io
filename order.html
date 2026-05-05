@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>訂購說明｜毛咪 Maomi</title>
+<meta name="description" content="毛咪 Maomi 手作蕾絲領巾 訂購說明">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :root {
+    --bg-pink: #c599a4;
+    --bg-card: #faf6f1;
+    --mauve-deep: #7a4a58;
+    --mauve: #a87d8a;
+    --mauve-soft: #d4a8b3;
+    --text-answer: #6b6166;
+    --text-light: #faf6f1;
+  }
+
+  html, body { overflow-x: hidden; }
+
+  body {
+    font-family: 'Noto Sans TC', 'Quicksand', sans-serif;
+    background: var(--bg-pink);
+    color: var(--text-light);
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .container {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 24px 22px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 560px;
+      padding: 50px 40px 60px;
+    }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease-out 0.1s forwards;
+  }
+
+  .logo-wrap {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 3px var(--bg-pink),
+      0 0 0 4px var(--bg-card),
+      0 6px 18px rgba(122, 74, 88, 0.25);
+  }
+
+  .logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .page-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--text-light);
+    margin-bottom: 10px;
+  }
+
+  .page-desc {
+    font-size: 13px;
+    color: rgba(250, 246, 241, 0.85);
+    letter-spacing: 1px;
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .faq-item {
+    background: var(--bg-card);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out forwards;
+    box-shadow: 0 2px 8px rgba(122, 74, 88, 0.12);
+  }
+
+  .faq-item:nth-child(1) { animation-delay: 0.2s; }
+  .faq-item:nth-child(2) { animation-delay: 0.3s; }
+  .faq-item:nth-child(3) { animation-delay: 0.4s; }
+  .faq-item:nth-child(4) { animation-delay: 0.5s; }
+  .faq-item:nth-child(5) { animation-delay: 0.6s; }
+
+  .faq-item.open {
+    box-shadow: 0 6px 16px rgba(122, 74, 88, 0.18);
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 16px 20px 16px 24px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--mauve-deep);
+    transition: color 0.25s ease;
+    position: relative;
+  }
+
+  .faq-question::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background: var(--mauve-soft);
+    border-radius: 2px;
+    transition: background 0.3s ease, height 0.3s ease;
+  }
+
+  .faq-item.open .faq-question::before {
+    background: var(--mauve-deep);
+    height: 22px;
+  }
+
+  .faq-question:active { transform: scale(0.99); }
+
+  .faq-text { flex: 1; }
+
+  .faq-arrow {
+    color: var(--mauve);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 400px;
+  }
+
+  .faq-answer-inner {
+    padding: 4px 22px 18px 24px;
+    font-size: 13.5px;
+    line-height: 1.85;
+    color: var(--text-answer);
+    letter-spacing: 0.5px;
+  }
+
+  .faq-answer-inner .em {
+    color: #4a4248;
+    font-weight: 600;
+  }
+
+  .footer-note {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 12px;
+    color: rgba(250, 246, 241, 0.9);
+    letter-spacing: 1px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.8s forwards;
+  }
+
+  .footer-note a {
+    color: var(--text-light);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250, 246, 241, 0.6);
+    padding-bottom: 1px;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    align-self: center;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: 1px solid rgba(250, 246, 241, 0.5);
+    transition: all 0.25s ease;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.9s forwards;
+  }
+
+  .back-link:active { transform: scale(0.96); }
+
+  @media (hover: hover) {
+    .back-link:hover {
+      background: rgba(250, 246, 241, 0.15);
+      border-color: var(--text-light);
+    }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (max-width: 360px) {
+    .page-title { font-size: 20px; }
+    .faq-question { font-size: 14px; padding: 14px 16px 14px 22px; }
+    .faq-answer-inner { padding: 4px 18px 16px 22px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="logo-wrap">
+      <img src="logo.jpeg" alt="毛咪 Maomi">
+    </div>
+    <h1 class="page-title">訂購說明</h1>
+    <p class="page-desc">分享給想訂購卻不知道如何下手的你 ✨</p>
+  </header>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-text">第一次購買～要怎麼買呢？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          毛咪在<span class="em">賣貨便</span>、<span class="em">蝦皮</span>都有開設賣場<br>
+          有喜歡的款式都可以直接下單<br>
+          賣貨便款式比較齊全，價格也比較優惠～
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-text">我想客製～該怎麼做？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          私訊 <span class="em">IG</span>～傳想購買的款式（截圖、連結皆可）<br>
+          直接告訴毛咪你的需求即可<br>
+          例如：特殊尺寸、雙扣、其他客製
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-text">尺寸說明</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          <span class="em">S</span>（20~22cm）、<span class="em">M</span>（23~25cm）<br>
+          <span class="em">L</span>（26~28cm）、<span class="em">XL</span>（29~31cm）<br>
+          如有需要客製其他尺寸可詢問<br>
+          超過 XL 的尺寸需要加價呦～
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-text">商品庫存說明</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          能下單的商品通常都有庫存<br>
+          但有時會沒抓好庫存（不好意思 🥺）<br>
+          如有任何問題毛咪都會先告知呦！<br>
+          無庫存但想購買的商品可以私訊 IG 詢問<br>
+          會告知是否可預購，或是已經斷貨～
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-text">我是海外客人～怎麼購買？</span>
+        <svg class="faq-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">
+          海外客人（港、澳、新、馬）<br>
+          會經由合作的 <span class="em">WUHOO 選品店</span>下單<br>
+          可以先 IG 提供給我想要的款式及尺寸<br>
+          我會協助告知如何下單呦 💕
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="footer-note">
+    如果還有其他疑問，歡迎直接<a href="https://instagram.com/Maomii_23" target="_blank" rel="noopener">私訊IG</a>詢問呦 🥰
+  </p>
+
+  <a href="index.html" class="back-link">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    返回主頁
+  </a>
+
+</div>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
