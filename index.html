@@ -50,7 +50,6 @@
     z-index: 0;
   }
 
-  /* 電腦版：中間手機寬度，兩側填滿同色背景 */
   @media (min-width: 768px) {
     body {
       display: flex;
@@ -71,7 +70,6 @@
     flex-direction: column;
   }
 
-  /* 電腦版的容器調整：不要佔滿高度，看起來像漂浮的手機介面 */
   @media (min-width: 768px) {
     .container {
       min-height: auto;
@@ -88,7 +86,7 @@
 
   .header {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 24px;
     opacity: 0;
     animation: fadeUp 0.7s ease-out 0.1s forwards;
   }
@@ -144,8 +142,7 @@
     font-weight: 500;
   }
 
-  .links {
-   /* 小公告 */
+  /* 小公告 */
   .announcement {
     display: flex;
     align-items: center;
@@ -155,7 +152,7 @@
     border: 1.5px solid var(--mauve-soft);
     border-radius: 999px;
     padding: 10px 18px;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     color: var(--mauve-deep);
     font-size: 12px;
     letter-spacing: 1.5px;
@@ -171,6 +168,8 @@
     flex-shrink: 0;
     color: var(--mauve);
   }
+
+  .links {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -195,11 +194,11 @@
     animation: fadeUp 0.5s ease-out forwards;
   }
 
-  .link-card:nth-child(1) { animation-delay: 0.25s; }
-  .link-card:nth-child(2) { animation-delay: 0.32s; }
-  .link-card:nth-child(3) { animation-delay: 0.39s; }
-  .link-card:nth-child(4) { animation-delay: 0.46s; }
-  .link-card:nth-child(5) { animation-delay: 0.53s; }
+  .link-card:nth-child(1) { animation-delay: 0.3s; }
+  .link-card:nth-child(2) { animation-delay: 0.37s; }
+  .link-card:nth-child(3) { animation-delay: 0.44s; }
+  .link-card:nth-child(4) { animation-delay: 0.51s; }
+  .link-card:nth-child(5) { animation-delay: 0.58s; }
 
   .link-card:active {
     transform: scale(0.98);
@@ -264,7 +263,7 @@
     text-align: center;
     margin-top: 18px;
     opacity: 0;
-    animation: fadeIn 0.8s ease-out 0.7s forwards;
+    animation: fadeIn 0.8s ease-out 0.75s forwards;
   }
 
   .footer-text {
@@ -295,9 +294,10 @@
 
   @media (max-height: 700px) {
     .container { padding: 18px 22px; }
-    .header { margin-bottom: 30px; }
+    .header { margin-bottom: 18px; }
     .logo-wrap { width: 68px; height: 68px; margin-bottom: 8px; }
     .brand-name { font-size: 20px; }
+    .announcement { padding: 8px 14px; margin-bottom: 14px; }
     .links { gap: 8px; }
     .link-card { padding: 12px 16px; }
   }
@@ -305,6 +305,7 @@
   @media (max-width: 360px) {
     .brand-name { font-size: 20px; }
     .link-title { font-size: 14px; }
+    .announcement { font-size: 11px; padding: 9px 14px; }
   }
 </style>
 </head>
@@ -320,12 +321,12 @@
     <div class="brand-tag">手 作 蕾 絲 領 巾</div>
   </header>
 
-   <div class="announcement">
+  <div class="announcement">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
       <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
     </svg>
-    <span> 目前暫停接單至2026/05/23～不好意思🥺 </span>
+    <span>目前暫停接單至 2026/05/23 🥺</span>
   </div>
 
   <nav class="links">
