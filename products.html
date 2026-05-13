@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>商品款式 ｜ 毛咪 Maomi</title>
-<meta name="description" content="毛咪 Maomi 手作蕾絲領巾 商品款式">
+<title>商品目錄 ｜ 毛咪 Maomi</title>
+<meta name="description" content="毛咪 Maomi 手作蕾絲領巾 商品目錄">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -243,10 +243,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: opacity 0.3s ease;
   }
-
-  .product-image.fading { opacity: 0; }
 
   .product-name {
     font-size: 13px;
@@ -255,6 +252,7 @@
     text-align: center;
     letter-spacing: 1.5px;
     margin-bottom: 2px;
+    line-height: 1.4;
   }
 
   .product-name-en {
@@ -267,44 +265,31 @@
     font-weight: 500;
   }
 
-  .color-label {
-    text-align: center;
-    font-size: 10px;
-    color: var(--text-soft);
-    letter-spacing: 2px;
-    margin-bottom: 8px;
-    min-height: 14px;
-  }
-
-  .color-label .current {
-    color: var(--mauve-deep);
-    font-weight: 600;
-  }
-
-  .color-swatches {
+  /* 顏色清單 */
+  .color-list {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    flex-direction: column;
+    gap: 4px;
     margin-bottom: 12px;
   }
 
-  .swatch {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    border: 2px solid var(--bg-card);
-    box-shadow: 0 0 0 1.5px var(--mauve-mist);
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    padding: 0;
+  .color-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    color: var(--text-soft);
+    letter-spacing: 1px;
+    padding-left: 4px;
   }
 
-  .swatch:hover { transform: scale(1.1); }
-
-  .swatch.active {
-    box-shadow: 0 0 0 2px var(--mauve-deep);
-    transform: scale(1.08);
+  .color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid var(--bg-card);
+    box-shadow: 0 0 0 1px var(--mauve-mist);
+    flex-shrink: 0;
   }
 
   .shop-buttons {
@@ -386,14 +371,14 @@
     .product-name { font-size: 14px; }
     .product-name-en { font-size: 11px; }
     .shop-btn { font-size: 12px; padding: 9px 12px; }
-    .swatch { width: 26px; height: 26px; }
+    .color-item { font-size: 11.5px; }
+    .color-dot { width: 14px; height: 14px; }
   }
 
   @media (max-width: 360px) {
     .container { padding: 20px 14px 30px; }
     .products { gap: 10px; }
     .product-card { padding: 10px 8px; }
-    .swatch { width: 22px; height: 22px; }
   }
 </style>
 </head>
@@ -416,24 +401,24 @@
 
   <main class="products">
 
+    <!-- 商品 1 -->
     <article class="product-card">
       <div class="product-image-wrap">
         <img class="product-image"
              src="https://raw.githubusercontent.com/Maomiii/maomiii.github.io/refs/heads/main/LC-BT-049-PB.jpg"
-             alt="初霧花語蕾絲領巾（粉、藍）">
+             alt="初霧花語蕾絲領巾">
       </div>
-      <h3 class="product-name">初霧花語蕾絲領巾（粉、藍）</h3>
-      <p class="product-name-en">Classic Lace</p>
-      <p class="color-label">顏色 ｜ <span class="current">兩款顏色</span></p>
-      <div class="color-swatches">
-        <button class="swatch active" style="background:#e2c4ca"
-                data-color="櫻花粉"
-                data-img="https://raw.githubusercontent.com/Maomiii/maomiii.github.io/refs/heads/main/LC-BT-049-PK.jpg"
-                aria-label="櫻花粉"></button>
-        <button class="swatch" style="background:#faf6f1"
-                data-color="天空藍"
-                data-img="https://raw.githubusercontent.com/Maomiii/maomiii.github.io/refs/heads/main/LC-BT-049-BL.jpg"
-                aria-label="天空藍"></button>
+      <h3 class="product-name">初霧花語蕾絲領巾</h3>
+      <p class="product-name-en">Misty Bloom Lace</p>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#e2c4ca"></span>
+          <span>櫻花粉</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#b8cfd8"></span>
+          <span>天空藍</span>
+        </div>
       </div>
       <div class="shop-buttons">
         <a href="https://s.shopee.tw/30kQPSn1E1" target="_blank" rel="noopener" class="shop-btn">
@@ -456,24 +441,24 @@
       </div>
     </article>
 
+    <!-- 商品 2（範例） -->
     <article class="product-card">
       <div class="product-image-wrap">
         <img class="product-image"
-             src="https://placehold.co/600x600/d4b5a0/7a4a58?text=焦糖"
-             alt="蝴蝶結蕾絲領巾 - 焦糖">
+             src="https://placehold.co/600x600/d4b5a0/7a4a58?text=商品圖"
+             alt="蝴蝶結蕾絲領巾">
       </div>
       <h3 class="product-name">蝴蝶結蕾絲領巾</h3>
       <p class="product-name-en">Ribbon Lace</p>
-      <p class="color-label">顏色 ｜ <span class="current">焦糖</span></p>
-      <div class="color-swatches">
-        <button class="swatch active" style="background:#d4b5a0"
-                data-color="焦糖"
-                data-img="https://placehold.co/600x600/d4b5a0/7a4a58?text=焦糖"
-                aria-label="焦糖"></button>
-        <button class="swatch" style="background:#a87d8a"
-                data-color="玫瑰"
-                data-img="https://placehold.co/600x600/a87d8a/faf6f1?text=玫瑰"
-                aria-label="玫瑰"></button>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#d4b5a0"></span>
+          <span>焦糖</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#a87d8a"></span>
+          <span>玫瑰</span>
+        </div>
       </div>
       <div class="shop-buttons">
         <a href="https://s.shopee.tw/30kQPSn1E1" target="_blank" rel="noopener" class="shop-btn">
@@ -496,28 +481,28 @@
       </div>
     </article>
 
+    <!-- 商品 3（範例） -->
     <article class="product-card">
       <div class="product-image-wrap">
         <img class="product-image"
-             src="https://placehold.co/600x600/faf6f1/7a4a58?text=米白"
-             alt="珍珠蕾絲領巾 - 米白">
+             src="https://placehold.co/600x600/faf6f1/7a4a58?text=商品圖"
+             alt="珍珠蕾絲領巾">
       </div>
       <h3 class="product-name">珍珠蕾絲領巾</h3>
       <p class="product-name-en">Pearl Lace</p>
-      <p class="color-label">顏色 ｜ <span class="current">米白</span></p>
-      <div class="color-swatches">
-        <button class="swatch active" style="background:#faf6f1"
-                data-color="米白"
-                data-img="https://placehold.co/600x600/faf6f1/7a4a58?text=米白"
-                aria-label="米白"></button>
-        <button class="swatch" style="background:#e2c4ca"
-                data-color="蜜桃"
-                data-img="https://placehold.co/600x600/e2c4ca/7a4a58?text=蜜桃"
-                aria-label="蜜桃"></button>
-        <button class="swatch" style="background:#7a5d65"
-                data-color="可可"
-                data-img="https://placehold.co/600x600/7a5d65/faf6f1?text=可可"
-                aria-label="可可"></button>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#faf6f1"></span>
+          <span>米白</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#e2c4ca"></span>
+          <span>蜜桃</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#7a5d65"></span>
+          <span>可可</span>
+        </div>
       </div>
       <div class="shop-buttons">
         <a href="https://s.shopee.tw/30kQPSn1E1" target="_blank" rel="noopener" class="shop-btn">
@@ -540,24 +525,24 @@
       </div>
     </article>
 
+    <!-- 商品 4（範例：示範蝦皮未上架） -->
     <article class="product-card">
       <div class="product-image-wrap">
         <img class="product-image"
-             src="https://placehold.co/600x600/c599a4/faf6f1?text=玫瑰粉"
-             alt="復古蕾絲領巾 - 玫瑰粉">
+             src="https://placehold.co/600x600/c599a4/faf6f1?text=商品圖"
+             alt="復古蕾絲領巾">
       </div>
       <h3 class="product-name">復古蕾絲領巾</h3>
       <p class="product-name-en">Vintage Lace</p>
-      <p class="color-label">顏色 ｜ <span class="current">玫瑰粉</span></p>
-      <div class="color-swatches">
-        <button class="swatch active" style="background:#c599a4"
-                data-color="玫瑰粉"
-                data-img="https://placehold.co/600x600/c599a4/faf6f1?text=玫瑰粉"
-                aria-label="玫瑰粉"></button>
-        <button class="swatch" style="background:#f0dde2"
-                data-color="杏色"
-                data-img="https://placehold.co/600x600/f0dde2/7a4a58?text=杏色"
-                aria-label="杏色"></button>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#c599a4"></span>
+          <span>玫瑰粉</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#f0dde2"></span>
+          <span>杏色</span>
+        </div>
       </div>
       <div class="shop-buttons">
         <a href="#" class="shop-btn disabled" aria-disabled="true">
@@ -587,36 +572,6 @@
   </footer>
 
 </div>
-
-<script>
-  document.querySelectorAll('.product-card').forEach(card => {
-    const swatches = card.querySelectorAll('.swatch');
-    const image = card.querySelector('.product-image');
-    const label = card.querySelector('.color-label .current');
-    const productName = card.querySelector('.product-name').textContent;
-
-    swatches.forEach(swatch => {
-      swatch.addEventListener('click', () => {
-        if (swatch.classList.contains('active')) return;
-
-        const newImg = swatch.dataset.img;
-        const newColor = swatch.dataset.color;
-
-        swatches.forEach(s => s.classList.remove('active'));
-        swatch.classList.add('active');
-
-        label.textContent = newColor;
-
-        image.classList.add('fading');
-        setTimeout(() => {
-          image.src = newImg;
-          image.alt = `${productName} - ${newColor}`;
-          image.classList.remove('fading');
-        }, 200);
-      });
-    });
-  });
-</script>
 
 </body>
 </html>
