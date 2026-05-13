@@ -55,3 +55,508 @@
     body {
       display: flex;
       align-items: flex-start;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 24px 18px 40px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      min-height: auto;
+      width: 100%;
+      max-width: 480px;
+      padding: 40px 24px;
+      background: #fffdfa;
+      border-radius: 32px;
+      box-shadow:
+        0 20px 60px rgba(168, 125, 138, 0.15),
+        0 0 0 1px rgba(212, 168, 179, 0.15);
+    }
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease-out 0.1s forwards;
+  }
+
+  .logo-wrap {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 3px var(--bg-base),
+      0 0 0 4px var(--mauve-soft),
+      0 6px 18px rgba(168, 125, 138, 0.2);
+  }
+
+  .logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .brand-name {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--mauve-deep);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .brand-name .zh {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--mauve-deep);
+  }
+
+  .brand-tag {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--mauve);
+    letter-spacing: 2px;
+    padding: 4px 14px;
+    border-top: 1px solid var(--mauve-mist);
+    border-bottom: 1px solid var(--mauve-mist);
+    font-weight: 500;
+  }
+
+  .back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--mauve);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    align-self: flex-start;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out 0.2s forwards;
+  }
+
+  .back-home::before {
+    content: "‹";
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .back-home:hover { color: var(--mauve-deep); }
+
+  .page-title {
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: var(--mauve-deep);
+    letter-spacing: 5px;
+    font-weight: 600;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.25s forwards;
+  }
+
+  .page-title::before,
+  .page-title::after {
+    content: "·";
+    margin: 0 10px;
+    color: var(--mauve-soft);
+  }
+
+  .page-desc {
+    text-align: center;
+    color: var(--mauve);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.3s forwards;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card {
+    background: var(--bg-card);
+    border-radius: 22px;
+    padding: 12px 10px;
+    box-shadow: 0 3px 10px rgba(168, 125, 138, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out forwards;
+  }
+
+  .product-card:nth-child(1) { animation-delay: 0.35s; }
+  .product-card:nth-child(2) { animation-delay: 0.42s; }
+  .product-card:nth-child(3) { animation-delay: 0.49s; }
+  .product-card:nth-child(4) { animation-delay: 0.56s; }
+  .product-card:nth-child(5) { animation-delay: 0.63s; }
+  .product-card:nth-child(6) { animation-delay: 0.7s; }
+
+  @media (hover: hover) {
+    .product-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(168, 125, 138, 0.2);
+    }
+  }
+
+  .product-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--mauve-mist);
+    margin-bottom: 10px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .product-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--mauve-deep);
+    text-align: center;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+
+  /* 顏色橫向清單 */
+  .color-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    margin-bottom: 12px;
+  }
+
+  .color-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10.5px;
+    color: var(--text-soft);
+    letter-spacing: 1px;
+  }
+
+  .color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid var(--bg-card);
+    box-shadow: 0 0 0 1px var(--mauve-mist);
+    flex-shrink: 0;
+  }
+
+  .shop-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: auto;
+  }
+
+  .shop-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: var(--pink-main);
+    color: var(--bg-base);
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 999px;
+    transition: background 0.2s ease, transform 0.15s ease;
+    font-size: 11px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(168, 125, 138, 0.18);
+  }
+
+  @media (hover: hover) {
+    .shop-btn:hover {
+      background: var(--mauve);
+      transform: translateY(-1px);
+    }
+  }
+
+  .shop-btn:active { transform: scale(0.97); }
+
+  .shop-btn svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  .shop-btn.disabled {
+    background: #d8cfc7;
+    color: var(--bg-base);
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+    opacity: 0.8;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 28px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out 0.8s forwards;
+  }
+
+  .copyright {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 10px;
+    color: var(--mauve-soft);
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (min-width: 768px) {
+    .products { gap: 16px; }
+    .product-card { padding: 14px 12px; border-radius: 24px; }
+    .product-name { font-size: 14px; }
+    .shop-btn { font-size: 12px; padding: 9px 12px; }
+    .color-item { font-size: 11.5px; }
+    .color-dot { width: 14px; height: 14px; }
+  }
+
+  @media (max-width: 360px) {
+    .container { padding: 20px 14px 30px; }
+    .products { gap: 10px; }
+    .product-card { padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="logo-wrap">
+      <img src="logo.jpeg" alt="毛咪 Maomi">
+    </div>
+    <h1 class="brand-name"><span class="zh">毛咪</span>Maomi</h1>
+    <div class="brand-tag">手 作 蕾 絲 領 巾</div>
+  </header>
+
+  <a href="index.html" class="back-home">回首頁</a>
+
+  <h2 class="page-title">商 品 目 錄</h2>
+  <p class="page-desc">Collection</p>
+
+  <main class="products">
+
+    <!-- 商品 1 -->
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-image"
+             src="https://raw.githubusercontent.com/Maomiii/maomiii.github.io/refs/heads/main/LC-BT-049-PB.jpg"
+             alt="初霧花語蕾絲領巾">
+      </div>
+      <h3 class="product-name">初霧花語蕾絲領巾</h3>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#e2c4ca"></span>
+          <span>櫻花粉</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#b8cfd8"></span>
+          <span>天空藍</span>
+        </div>
+      </div>
+      <div class="shop-buttons">
+        <a href="https://s.shopee.tw/30kQPSn1E1" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 L3 6 V20 A2 2 0 0 0 5 22 H19 A2 2 0 0 0 21 20 V6 L18 2 Z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10 A4 4 0 0 1 8 10"/>
+          </svg>
+          蝦皮
+        </a>
+        <a href="https://myship.7-11.com.tw/general/detail/GM2407290481465" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="13" height="10" rx="1"/>
+            <path d="M16 10 H20 L22 13 V17 H16"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="18" cy="18" r="2"/>
+          </svg>
+          賣貨便
+        </a>
+      </div>
+    </article>
+
+    <!-- 商品 2（範例） -->
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-image"
+             src="https://placehold.co/600x600/d4b5a0/7a4a58?text=商品圖"
+             alt="蝴蝶結蕾絲領巾">
+      </div>
+      <h3 class="product-name">蝴蝶結蕾絲領巾</h3>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#d4b5a0"></span>
+          <span>焦糖</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#a87d8a"></span>
+          <span>玫瑰</span>
+        </div>
+      </div>
+      <div class="shop-buttons">
+        <a href="https://s.shopee.tw/30kQPSn1E1" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 L3 6 V20 A2 2 0 0 0 5 22 H19 A2 2 0 0 0 21 20 V6 L18 2 Z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10 A4 4 0 0 1 8 10"/>
+          </svg>
+          蝦皮
+        </a>
+        <a href="https://myship.7-11.com.tw/general/detail/GM2407290481465" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="13" height="10" rx="1"/>
+            <path d="M16 10 H20 L22 13 V17 H16"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="18" cy="18" r="2"/>
+          </svg>
+          賣貨便
+        </a>
+      </div>
+    </article>
+
+    <!-- 商品 3（範例） -->
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-image"
+             src="https://placehold.co/600x600/faf6f1/7a4a58?text=商品圖"
+             alt="珍珠蕾絲領巾">
+      </div>
+      <h3 class="product-name">珍珠蕾絲領巾</h3>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#faf6f1"></span>
+          <span>米白</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#e2c4ca"></span>
+          <span>蜜桃</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#7a5d65"></span>
+          <span>可可</span>
+        </div>
+      </div>
+      <div class="shop-buttons">
+        <a href="https://s.shopee.tw/30kQPSn1E1" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 L3 6 V20 A2 2 0 0 0 5 22 H19 A2 2 0 0 0 21 20 V6 L18 2 Z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10 A4 4 0 0 1 8 10"/>
+          </svg>
+          蝦皮
+        </a>
+        <a href="https://myship.7-11.com.tw/general/detail/GM2407290481465" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="13" height="10" rx="1"/>
+            <path d="M16 10 H20 L22 13 V17 H16"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="18" cy="18" r="2"/>
+          </svg>
+          賣貨便
+        </a>
+      </div>
+    </article>
+
+    <!-- 商品 4（範例：示範蝦皮未上架） -->
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img class="product-image"
+             src="https://placehold.co/600x600/c599a4/faf6f1?text=商品圖"
+             alt="復古蕾絲領巾">
+      </div>
+      <h3 class="product-name">復古蕾絲領巾</h3>
+      <div class="color-list">
+        <div class="color-item">
+          <span class="color-dot" style="background:#c599a4"></span>
+          <span>玫瑰粉</span>
+        </div>
+        <div class="color-item">
+          <span class="color-dot" style="background:#f0dde2"></span>
+          <span>杏色</span>
+        </div>
+      </div>
+      <div class="shop-buttons">
+        <a href="#" class="shop-btn disabled" aria-disabled="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 L3 6 V20 A2 2 0 0 0 5 22 H19 A2 2 0 0 0 21 20 V6 L18 2 Z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10 A4 4 0 0 1 8 10"/>
+          </svg>
+          蝦皮未上架
+        </a>
+        <a href="https://myship.7-11.com.tw/general/detail/GM2407290481465" target="_blank" rel="noopener" class="shop-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="13" height="10" rx="1"/>
+            <path d="M16 10 H20 L22 13 V17 H16"/>
+            <circle cx="7" cy="18" r="2"/>
+            <circle cx="18" cy="18" r="2"/>
+          </svg>
+          賣貨便
+        </a>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="footer">
+    <div class="copyright">© Maomi 2024</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
