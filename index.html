@@ -145,6 +145,32 @@
   }
 
   .links {
+   /* 小公告 */
+  .announcement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1.5px solid var(--mauve-soft);
+    border-radius: 999px;
+    padding: 10px 18px;
+    margin-bottom: 16px;
+    color: var(--mauve-deep);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(168, 125, 138, 0.08);
+    opacity: 0;
+    animation: fadeUp 0.6s ease-out 0.2s forwards;
+  }
+
+  .announcement svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    color: var(--mauve);
+  }
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -293,6 +319,14 @@
     <h1 class="brand-name"><span class="zh">毛咪</span>Maomi</h1>
     <div class="brand-tag">手 作 蕾 絲 領 巾</div>
   </header>
+
+   <div class="announcement">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>
+      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+    </svg>
+    <span>5/15-5/20 出貨暫停</span>
+  </div>
 
   <nav class="links">
 
